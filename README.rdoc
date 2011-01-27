@@ -1,0 +1,19 @@
+== wiki2wiki
+
+This utility copies content from one wiki to another, or inside the single wiki but between spaces. 
+It may be useful for some projects, where one wiki is on client side behind a firewall or in some other place with limited access.
+Running this utility periodically, you ensure that two wikies are synchronized.
+
+== Usage
+
+    ./copier [options]
+    -f, --from PARENT_PAGE_ID        Id of the parent page that we start from
+    -t, --to PARENT_PAGE_ID          Id of the page that will be the parent of all pages in another wiki
+    -k, --key KEY                    Target Space Key.
+
+== Other
+
+This utility cames from similar one, originally written by {Kirill Ishanov}[https://github.com/kylichuku], but it has been changed dramatically.
+
+== Copyright
+Copyright (c) 2010 Mike Scherbakov. See LICENSE for details.
