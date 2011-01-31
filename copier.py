@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 import sys, string, xmlrpclib, re
 from config import *
-
-parentId_from = '52234383'
-parentId_to = '64266803'
-spaceKey_to = '~mscherbakov'
+from optparse import OptionParser
 
 class WikiClient:
     
@@ -16,7 +13,21 @@ class WikiClient:
 #        print "Executing %s.." % method
         return getattr(self.client.confluence1, method)(self.token, *args)
 
+def get_opts():
+    parser = OptionParser("Usage: %prog --id-from <id> --id-to <id_to> --spacekey-to <spaceKey>")
+    parser.add_option('--id-from', dest='id_from', help='Parent Id of the page the copier should start reading from.')
+    parser.add_option('--id-to', dest='id_to', help='Id of the page on target wiki, which will be the top of the pages hierarchy.')
+    parser.add_option('--spacekey-to', dest='spacekey_to', help='Key of the target space')
+    opts, args = parser.parse_args()
+    if not (opts.id_to and opts.id_from and opts.spacekey_to):
+        parser.error("Incorrect arguments.")
+    return opts
+
 if __name__ == "__main__":
+    opts = get_opts()
+    parentId_from = opts.id_from
+    parentId_to = opts.id_to
+    spaceKey_to = opts.spacekey_to
     wiki_from = WikiClient(WIKI_FROM_URL, WIKI_FROM_USER, WIKI_FROM_PASSWORD)
     wiki_to = WikiClient(WIKI_TO_URL, WIKI_TO_USER, WIKI_TO_PASSWORD)
 

@@ -6,16 +6,22 @@ Running this utility periodically, you ensure that two wikies are synchronized.
 
 == Usage
 
-    *It is not valid for now*
-    ./copier [options]
-    -f, --from PARENT_PAGE_ID        Id of the parent page that we start from
-    -t, --to PARENT_PAGE_ID          Id of the page that will be the parent of all pages in another wiki
-    -k, --key KEY                    Target Space Key.
+Usage: ./copier.py --id-from <id> --id-to <id_to> --spacekey-to <spaceKey>
+
+Options:
+  --id-from=ID_FROM     Parent Id of the page the copier should start reading
+                        from.
+  --id-to=ID_TO         Id of the page on target wiki, which will be the top
+                        of the pages hierarchy.
+  --spacekey-to=SPACEKEY_TO
+                        Key of the target space
+
+Example: 
+    ./copier.py --id-from 52234383 --id-to 64266803 --spacekey-to '~spacekey'
 
 == Other
 
-It has just been rewritten on Python due to some problems with Ruby's xmlrpc. OptionParser is not included yet, so the only way to specify settings is to edit
-source code at this moment. Attachments are uploaded each time you run the utility, whether it's already exists or not.
+Attachments are uploaded each time you run the utility, whether it's already exists or not.
 
 == Copyright
 Copyright (c) 2011 Mike Scherbakov. See LICENSE for details.
