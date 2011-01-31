@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys, string, xmlrpclib, re
-from config import *
+import config
 from optparse import OptionParser
 
 class WikiClient:
