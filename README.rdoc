@@ -1,11 +1,12 @@
 == wiki2wiki
 
-This utility copies content from one wiki to another, or inside the single wiki but between spaces. 
+This utility copies content from one wiki to another, or inside the single wiki but between spaces, include attachments. 
 It may be useful for some projects, where one wiki is on client side behind a firewall or in some other place with limited access.
 Running this utility periodically, you ensure that two wikies are synchronized.
 
 == Usage
 
+    *It is not valid for now*
     ./copier [options]
     -f, --from PARENT_PAGE_ID        Id of the parent page that we start from
     -t, --to PARENT_PAGE_ID          Id of the page that will be the parent of all pages in another wiki
@@ -13,7 +14,8 @@ Running this utility periodically, you ensure that two wikies are synchronized.
 
 == Other
 
-This utility cames from similar one, originally written by {Kirill Ishanov}[https://github.com/kylichuku], but it has been changed dramatically.
+It has just been rewritten on Python due to some problems with Ruby's xmlrpc. OptionParser is not included yet, so the only way to specify settings is to edit
+source code at this moment. Attachments are uploaded each time you run the utility, whether it's already exists or not.
 
 == Copyright
-Copyright (c) 2010 Mike Scherbakov. See LICENSE for details.
+Copyright (c) 2011 Mike Scherbakov. See LICENSE for details.
